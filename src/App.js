@@ -10,7 +10,7 @@ export default function App() {
       <div>
         <Routes>
           <Route path="/" element={<NewsList />} />
-          <Route path="/news/:id" element={<NewsDetails />} />
+          <Route path="/news/*" element={<NewsDetails />} />
           <Route path="/favorites" element={<Favorites />} />
         </Routes>
       </div>

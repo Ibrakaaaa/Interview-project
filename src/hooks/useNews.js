@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useNewsContext } from "../context/NewsContext";
 import axios from "axios";
 
-const API_URL = 'https://content.guardianapis.com/search?api-key=92014cba-8a47-4a12-b0e8-fea5ff503114&page-size=30&show-fields=thumbnail';
+const API_URL = 'https://content.guardianapis.com/search?api-key=92014cba-8a47-4a12-b0e8-fea5ff503114&page-size=100&show-fields=thumbnail';
 
 function useNews() {
     const {dispatch} = useNewsContext();

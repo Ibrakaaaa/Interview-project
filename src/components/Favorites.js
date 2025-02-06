@@ -13,29 +13,25 @@ export default function Favorites() {
         Your Favorite News
       </h1>
 
-      {favorites.length === 0 ? (
-        <p className="text-center text-gray-500">No Favorite News</p>
-      ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
-          {favorites.map((favoriteItem) => (
-            <div key={favoriteItem.id} className="flex justify-center">
-              <NewsCard
-                id={favoriteItem.id}
-                title={favoriteItem.title}
-                description={favoriteItem.description}
-                urlToImage={favoriteItem.urlToImage}
-                section={favoriteItem.section}
-              />
-            </div>
-          ))}
-        </div>
-      )}
+      {favorites.map((favoriteItem) => (
+  <div key={favoriteItem.id} className="flex justify-center">
+    <NewsCard
+      id={favoriteItem.id}
+      title={favoriteItem.title}
+      description={favoriteItem.description}
+      urlToImage={favoriteItem.urlToImage}
+      section={favoriteItem.section}
+    />
+    {console.log("Favorite Item ID:", favoriteItem.id)} {/* Log the favorite ID */}
+  </div>
+))}
+
 
       <div className="flex justify-center mt-8">
         <Link to="/">
-          <button className="px-6 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 transition-transform transform hover:scale-105">
-            Back to the News
-          </button>
+        <button className="px-4 py-1 sm:px-6 sm:py-2 text-sm sm:text-base bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 transition-transform transform hover:scale-105">
+  Back to the News
+</button>
         </Link>
       </div>
     </div>

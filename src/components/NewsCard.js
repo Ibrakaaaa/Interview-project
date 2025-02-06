@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useNewsContext } from "../context/NewsContext";
-import { MdOutlineStarPurple500 } from "react-icons/md";
-import { MdOutlineStarBorderPurple500 } from "react-icons/md";
+import { FaHeart } from "react-icons/fa";
+import { FaRegHeart } from "react-icons/fa";
 
 const NewsCard = ({ title, description, urlToImage, id, section }) => {
   const { state, dispatch } = useNewsContext();
@@ -22,29 +22,29 @@ const NewsCard = ({ title, description, urlToImage, id, section }) => {
   const isFavorite = favorites.some((fav) => fav.id === id);
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-4 w-full max-w-[800px] h-[460px]">
+    <div className="bg-white rounded-lg shadow-lg p-4 w-full max-w-[800px] min-h-[460px]">
       <img
         className="w-full h-[300px] object-cover rounded-md"
         src={urlToImage || "https://via.placeholder.com/800x460"}
         alt={title}
       />
-      <h2 className="text-md font-semibold mt-2">
+      <h2 className="text-lg md:text-md sm:text-sm font-semibold mt-2">
         <Link to={`/news/${id}`} className="text-blue-600 hover:underline">
           {title}
         </Link>
       </h2>
-      <h3>{section}</h3>
+      <h3 className="text-md md:text-sm sm:text-xs">{section}</h3>
       {isFavorite ? (
-        <MdOutlineStarPurple500
+        <FaHeart className="text-red-500 text-lg sm:text-2xl md:text-base lg:text-base"
           onClick={toggleFavorites}
-        ></MdOutlineStarPurple500>
+        ></FaHeart>
       ) : (
-        <MdOutlineStarBorderPurple500
+        <FaRegHeart className="text-red-500 text-lg sm:text-2xl md:text-base lg:text-base"
           onClick={toggleFavorites}
-        ></MdOutlineStarBorderPurple500>
+        ></FaRegHeart>
       )}
 
-      <p className="text-sm text-gray-600 mt-2">
+      <p className="text-sm md:text-xs sm:text-[10px] text-gray-600 mt-2">
         {description
           ? description.slice(0, 80) + "..."
           : "No description available"}

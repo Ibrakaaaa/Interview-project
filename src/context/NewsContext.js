@@ -35,6 +35,11 @@ function newsReducer(state, action) {
         ...state,
         currentPage: Math.min(state.currentPage + 1, totalPages),
       };
+      case "PREVIOUS_PAGE":
+        return {
+          ...state,
+          currentPage: Math.max(state.currentPage - 1,1)
+        }
     case "SET_CATEGORY":
       return { ...state, newsCategory: action.payload };
     case "ADD_FAVORITE":
